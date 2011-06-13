@@ -1,0 +1,14 @@
+escape ^Zz # Instead of Control-a, make the escape/command character be Control-z
+
+autodetach on # Autodetach session on hangup instead of terminating screen completely
+
+startup_message off # Turn off the splash screen
+
+defscrollback 30000 
+termcapinfo xterm ti@:te@
+
+
+#caption always "%{= kc}%?%-Lw%?%{= kY}%n*%f %t%?(%u)%?%{= kc}%?%+Lw%?"
+
+hardstatus alwayslastline                                                                                                                          
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
