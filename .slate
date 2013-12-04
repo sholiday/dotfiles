@@ -1,0 +1,41 @@
+config defaultToCurrentScreen true
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN
+
+# Abstract positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/1.8;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/1.8;screenOriginY screenSizeX-screenSizeX/1.8;screenSizeY
+
+alias topright corner top-right resize:screenSizeX/2.25;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2.25;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/1.8;screenSizeY/2
+alias topleft corner top-left resize:screenSizeX/1.8;screenSizeY/2
+
+#alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+#alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+#alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+#alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+#alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+#alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Move to position
+bind m:shift;cmd ${full}
+bind left:shift;cmd ${lefthalf}
+bind right:shift;cmd ${righthalf}
+
+bind right:alt;cmd ${bottomright}
+bind up:alt;cmd ${topright}
+bind left:alt;cmd ${topleft}
+bind down:alt;cmd ${bottomleft}
+
+bind e:ctrl;cmd ${full}
+
+# Focus
+bind w:cmd;ctrl focus 'Google Chrome'
+
