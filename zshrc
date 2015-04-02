@@ -62,7 +62,7 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='vim'
-  export VISUAL='subl -w'
+  export VISUAL='vim'
 fi
 
 # Compilation flags
