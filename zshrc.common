@@ -36,12 +36,25 @@ calc () {
     bc -l <<< "$@"
 }
 
-if [[ ${TERM} == "screen-bce" || ${TERM} == "screen" ]]; then
-  precmd () { print -Pn "\033k\033\134\033k%m[%1d]\033\134" }
-  preexec () { print -Pn "\033k\033\134\033k%m[$1]\033\134" }
-else
-  precmd () { print -Pn "\e]0;%n@%m: %~\a" }
-  preexec () { print -Pn "\e]0;%n@%m: $1\a" }
-fi
+
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+  if [ $timer ]; then
+    timer_show=$(($SECONDS - $timer))
+    export RPROMPT="%F{cyan}${timer_show}s %{$reset_color%}"
+    unset timer
+  fi
+}
+
+# if [[ ${TERM} == "screen-bce" || ${TERM} == "screen" ]]; then
+#   precmd () { print -Pn "\033k\033\134\033k%m[%1d]\033\134" }
+#   preexec () { print -Pn "\033k\033\134\033k%m[$1]\033\134" }
+# else
+#   precmd () { print -Pn "\e]0;%n@%m: %~\a" }
+#   preexec () { print -Pn "\e]0;%n@%m: $1\a" }
+# fi
 
 
