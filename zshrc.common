@@ -1,5 +1,7 @@
 # User configuration
 
+export TERM=xterm-256color
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 

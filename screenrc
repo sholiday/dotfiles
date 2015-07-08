@@ -7,7 +7,6 @@ startup_message off # Turn off the splash screen
 defscrollback 30000 
 termcapinfo xterm ti@:te@
 
-
 #caption always "%{= kc}%?%-Lw%?%{= kY}%n*%f %t%?(%u)%?%{= kc}%?%+Lw%?"
 
 hardstatus alwayslastline                                                                                                                          
